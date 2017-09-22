@@ -1,6 +1,7 @@
 package denis.rylow.practice.messenger.service;
 
 import denis.rylow.practice.messenger.database.Database;
+
 import denis.rylow.practice.messenger.model.Message;
 
 import java.util.ArrayList;
@@ -10,6 +11,11 @@ import java.util.Map;
 
 public class MessageService {
 	private static Map<Long, Message> messages = Database.getMessages();
+	
+	public MessageService() {
+		messages.put(1L, new Message(1, "Hello World", "Denis"));
+		messages.put(2L, new Message(2, "Hello World!!!!", "Denis"));
+	}
 	
 	public List<Message> getAllMessages() {
 		//Message m1 = new Message(1L, "Hello", "Denis");
@@ -27,9 +33,9 @@ public class MessageService {
 		return message;
 	}
 	
-	public Message addMessage(long id) {
-		Message message = messages.get(id);
-		return message;
+	public long addMessage(Message message) {
+		return messages.put((long) messages.size(), message).getId();
+		 
 	}
 	
 	public Message updateMessage(Message message) {
