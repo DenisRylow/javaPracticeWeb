@@ -35,12 +35,12 @@ public class PorfileService {
 		return Profiles.size();		 
 	}
 	
-	public Profile updateProfile(Profile Profile) {
-		if (Profile.getProfileName().isEmpty()) {
+	public Profile updateProfile(Profile profile) {
+		if (profile.getProfileName().isEmpty()) {
 			return null;
 		}
-		Profiles.put(Profile.getProfileName(), Profile);
-		return Profile;
+		Profiles.put(profile.getProfileName(), profile);
+		return profile;
 	}
 	
 	public Profile removeProfile(String profName) {
