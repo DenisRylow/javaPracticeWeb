@@ -4,12 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import denis.rylow.practice.messenger.model.Message;
+import denis.rylow.practice.messenger.model.Profile;
 
 public class Database {
-	private static Map<Long, Message> profiles = new HashMap<>();
+	private static Map<String, Profile> profiles = new HashMap<>();
 	private static Map<Long, Message> messages = new HashMap<>();
 
-	public static Map<Long, Message> getProfiles() {
+	public static Map<String, Profile> getProfiles() {
 		return profiles;
 	}
 	

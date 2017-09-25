@@ -34,8 +34,12 @@ public class MessageService {
 	}
 	
 	public long addMessage(Message message) {
-		return messages.put((long) messages.size(), message).getId();
-		 
+		if (message == null) {
+			return -1;
+		}
+		message.setId(messages.size() + 1);
+		messages.put(message.getId(), message);	
+		return messages.size();		 
 	}
 	
 	public Message updateMessage(Message message) {
